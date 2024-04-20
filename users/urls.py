@@ -18,7 +18,7 @@ router.register(r'', AddressViewSet)
 
 urlpatterns = [
     path('register/', UserRegisterationAPIView.as_view(), name='user_register'),
-    path('login/', UserLoginAPIView.as_view(), name='user_login'),
+    path('login1/', UserLoginAPIView.as_view(), name='user_login'),
 
     path(
         'send-sms/',

@@ -14,14 +14,15 @@ services:
       - redis
       - db
   db:
-    image: postgres:13
+    image: mysql
     volumes:
-      - postgres_data:/var/lib/postgresql/data/
+      - mysql_data:/var/lib/mysql
     environment:
-      - "POSTGRES_HOST_AUTH_METHOD=trust"
-      - POSTGRES_USER=${DB_USERNAME}
-      - POSTGRES_PASSWORD=${DB_PASSWORD}
-      - POSTGRES_DB=${DB_NAME}
+      # - "POSTGRES_HOST_AUTH_METHOD=trust"
+      - MYSQL_USER=${DB_USERNAME}
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_DATABASE=${DB_NAME}
   
   redis:
     image: redis:7
@@ -39,4 +40,4 @@ services:
       - web
 
 volumes:
-  postgres_data:
+  mysql_data:

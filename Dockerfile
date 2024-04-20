@@ -10,6 +10,8 @@ COPY ./requirements.txt .
 
 RUN apt-get update -y && \
     apt-get install -y netcat && \
+    apt install -y pkg-config gcc && \
+    apt-get install -y default-libmysqlclient-dev pkg-config libpq-dev && \
     pip install --upgrade pip && \
     pip install -r requirements.txt
 
